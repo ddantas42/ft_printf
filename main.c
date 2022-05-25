@@ -3,10 +3,12 @@
 
 int main()
 {
-	void	*n;
+	int	n = -2;
 
 	printf("-------------\n");
-	printf("%p\n", n);
+	while (n++ < 50)
+		printf("%p | n = %d\n", n, n);
+	printf("-------------\n");
 
 	return(0);
 }
