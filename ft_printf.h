@@ -29,12 +29,11 @@ int		ft_putchar_pf(char c);
 int		ft_putstr_pf(char *s);
 int		ft_putnbr_pf(int n);
 int		ft_put_perc(void);
-int		ft_intlen(int n);
 int		ft_putvoid(unsigned long int *p);
 
 // libft functions
+int		ft_intlen(int n);
 char	*ft_itoa(int n);
 size_t	ft_strlen(const char *s);
-
 
 #endif

@@ -62,10 +62,10 @@ int	ft_putnbr_pf(int n)
 
 	if (n)
 	{
-		str = malloc(ft_intlen(n) * sizeof(char));
+		str = malloc(1 * sizeof(char));
 		if (!str)
 			return (0);
-		str = ft_itoa(n);
+		str[0] = '1';
 		i = 0;
 		while (str[i])
 			write(1, &str[i++], 1);
