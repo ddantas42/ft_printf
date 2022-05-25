@@ -14,12 +14,8 @@
 
 int	ft_putchar_pf(char c)
 {
-	if (c)
-	{
-		write(1, &c, 1);
-		return (1);
-	}
-	return (0);
+	write(1, &c, 1);
+	return (1);
 }
 
 int	ft_putstr_pf(char *s)
@@ -37,7 +33,17 @@ int	ft_putstr_pf(char *s)
 		}
 		return (n);
 	}
-	return (0);
+	write(1, "(null)", 6);
+	return (6);
+}
+
+int	ft_putvoid(unsigned long int *p)
+{
+	write(1, "0x", 2);
+	if (!p)
+		return (ft_putchar_pf('0') + 2);
+	write(1, "ffffffff", 8);
+	return (2 + 8);
 }
 
 int	ft_putnbr_pf(int n)
@@ -48,10 +54,14 @@ int	ft_putnbr_pf(int n)
 
 	if (n)
 	{
+		str = malloc(ft_intlen(n) * sizeof(char));
+		if (!str)
+			return (0);
 		str = ft_itoa(n);
 		i = 0;
 		while (str[i])
 			write(1, &str[i++], 1);
+		free(str);
 		return (i);
 	}
 	if (!n)
@@ -63,9 +73,9 @@ int	ft_putnbr_pf(int n)
 
 int	ft_put_perc(void)
 {
-	char	c;
+	char	c[1];
 
-	c = '%';
+	c[0] = '%';
 	write(1, &c, 1);
 	return (1);
 }

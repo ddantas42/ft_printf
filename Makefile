@@ -32,8 +32,7 @@ all:
 clean:
 	rm -f *.o
 
-fclean:
-	rm -f *.o
+fclean: clean
 	rm -f libftprintf.a
 
 re: fclean all

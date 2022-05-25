@@ -28,7 +28,7 @@ int	ft_funcion_selector(char c, va_list ap)
 	if (c == 's')
 		return (ft_putstr_pf(va_arg(ap, char *)));
 	if (c == 'p')
-		return (0);
+		return (ft_putvoid(va_arg(ap, void *)));
 	if (c == 'd' || c == 'i')
 		return (ft_putnbr_pf(va_arg(ap, int)));
 	if (c == 'u')

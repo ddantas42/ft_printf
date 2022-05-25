@@ -18,10 +18,10 @@ int	ft_printf(const char *str, ...)
 	int		len;
 	va_list	ap;
 
-	va_start (ap, str);
+	va_start(ap, str);
 	len = 0;
-	n = -1;
-	while (str[++n])
+	n = 0;
+	while (str[n])
 	{
 		if (str[n] == '%')
 		{
@@ -34,7 +34,8 @@ int	ft_printf(const char *str, ...)
 		}
 		write(1, &str[n], 1);
 		len++;
+		n++;
 	}
-	va_end (ap);
+	va_end(ap);
 	return (len);
 }
