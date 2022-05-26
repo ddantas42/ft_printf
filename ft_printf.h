@@ -31,9 +31,8 @@ int		ft_putnbr_pf(int n);
 int		ft_put_perc(void);
 int		ft_putvoid(unsigned long int *p);
 
-// libft functions
-int		ft_intlen(int n);
-char	*ft_itoa(int n);
-size_t	ft_strlen(const char *s);
+// ft_printf_functions2.c
+int     ft_put_hex(int n);
+int     ft_put_hex_caps(int n);
 
 #endif
