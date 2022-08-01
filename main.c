@@ -36,9 +36,29 @@ char	tenths_to_hex(int n)
 	return (0);
 }
 
-char	*string_inverter(char *str)
+size_t	ft_strlen(const char *s)
 {
-	
+	int	n;
+
+	n = 0;
+	while (s[n] != '\0')
+		n++;
+	return (n);
+}
+
+char	*string_inverter(char *str, int len)
+{
+	int		n;
+	char	*nova = malloc((ft_strlen(str) + 1) * sizeof(char ));
+
+	n = 0;
+	while (ft_strlen(str) != n)
+	{
+		str[len--] = nova[n];
+		n++;
+	}
+	str[ft_strlen(str) + 1] = 0;
+	return (str);
 }
 
 char	*ft_put_hex(long int n)
@@ -51,7 +71,7 @@ char	*ft_put_hex(long int n)
 
 	len = 0;
 	if (!n)
-		return (NULL);
+		return ("0");
 	while (n > 15)
     {
 		div = n / 16;
@@ -61,20 +81,20 @@ char	*ft_put_hex(long int n)
     }
 	if (n > 0)
 		str[len++] = tenths_to_hex(n);
-	return (str);
+	return (string_inverter(str, len));
 }
 
 int main()
 {
-	long int	n = -9223372036854775808;
+	long int	n = 0;
 	float   resto;
 	float	div;
 
-	while (n < 92233720368547758070)
+	while (n < 100)
 	{
 		printf("N = %ld | hex = %lx | My = %s\n", n, n, ft_put_hex(n));
 		n++;
-		delay(100);
+		delay(200);
 	}
 	return (0);
 }

@@ -12,23 +12,26 @@
 
 #include "ft_printf.h"
 
-// int ft_put_hex(long int n)
-// {
-//     char    *str;
-//     float   float_n;
+int	*ft_put_hex(long int n)
+{
+	char	*str = malloc(16);
+	int		len;
+	char	c;
+    float   resto;
+	int		div;
 
-//     str = malloc((ft_inlen(n) - 1) * sizeof(char));
-//     while(n)
-//     {
-//         n /= 16;
-//         if (n < 16);
+	len = 0;
+	if (n)
+		return ("0");
+	while (n > 15)
+    {
+		div = n / 16;
+		resto = n % 16;
+		str[len++] = tenths_to_hex(resto);
+		n /= 16;
+    }
+	if (n > 0)
+		str[len++] = tenths_to_hex(n);
+	return (string_inverter(str));
+}
 
-//     }
-
-//     return (ft_strlen(n) - 1);
-// }
-
-// int ft_put_hex_caps(int n)
-// {
-
-// }
