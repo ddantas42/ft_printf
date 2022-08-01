@@ -1,24 +1,14 @@
 #include "ft_printf.h"
 #include <stdio.h>
+#include <time.h>
 
-int	ft_intlen(int n)
+void delay(int number_of_seconds)
 {
-	int	len;
-
-	len = 0;
-	if (n < 0)
-	{
-		n *= -1;
-		len++;
-	}
-	else if (n == 0)
-		return (1);
-	while (n)
-	{
-		n = n / 10;
-		len++;
-	}
-	return (len);
+    int milli_seconds = 1000 * number_of_seconds;
+  
+    clock_t start_time = clock();
+    while (clock() < start_time + milli_seconds)
+        ;
 }
 
 char	*letters_hex(int n)
@@ -46,43 +36,45 @@ char	tenths_to_hex(int n)
 	return (0);
 }
 
-void	*ft_put_hex(long int n)
+char	*string_inverter(char *str)
 {
+	
+}
+
+char	*ft_put_hex(long int n)
+{
+	char	*str = malloc(16);
+	int		len;
 	char	c;
     float   resto;
 	int		div;
 
-    while(n > 15)
+	len = 0;
+	if (!n)
+		return (NULL);
+	while (n > 15)
     {
 		div = n / 16;
 		resto = n % 16;
-		c = tenths_to_hex(resto);
-		write(1, &c, 1);
+		str[len++] = tenths_to_hex(resto);
 		n /= 16;
     }
 	if (n > 0)
-	{
-		c = tenths_to_hex(n);
-		write(1, &c, 1);
-	}
+		str[len++] = tenths_to_hex(n);
+	return (str);
 }
 
 int main()
 {
-	long int	n = 2000;
+	long int	n = -9223372036854775808;
 	float   resto;
 	float	div;
-	
 
-	// while (n <= 100)
-	// {
-	// 	printf("Printf ! Hex = %x | n = = malloc(2);
-	// }
-
-	printf(" = my | N = %ld | hex = %lx", n, n);
-	ft_put_hex(n);
-	printf(" \n");
-
-
+	while (n < 92233720368547758070)
+	{
+		printf("N = %ld | hex = %lx | My = %s\n", n, n, ft_put_hex(n));
+		n++;
+		delay(100);
+	}
 	return (0);
 }
