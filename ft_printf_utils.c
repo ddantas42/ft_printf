@@ -26,7 +26,7 @@ int	ft_funcion_selector(char c, va_list ap)
 	if (c == 'c')
 		return (ft_putchar_pf(va_arg(ap, int))); // done
 	if (c == 's')
-		return (ft_putstr_pf(va_arg(ap, char *)));  // done
+		return (ft_putstr_pf(va_arg(ap, char *))); // done
 	if (c == 'p')
 		return (ft_putvoid(va_arg(ap, void *)));
 	if (c == 'd' || c == 'i')
@@ -35,9 +35,9 @@ int	ft_funcion_selector(char c, va_list ap)
 		return (ft_putnbr_pf(va_arg(ap, int)));
 	if (c == 'x')
 		return (ft_put_hex(va_arg(ap, int)));
-	if (c == 'X')
-		return (ft_put_hex_caps(va_arg(ap, int)));
+	// if (c == 'X')
+	// 	return (ft_put_hex_caps(va_arg(ap, int)));
 	if (c == '%')
-		return (ft_put_perc);
+		return (ft_put_perc()); // done
 	return (0);
 }

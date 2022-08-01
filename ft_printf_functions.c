@@ -51,7 +51,7 @@ int	ft_putvoid(unsigned long int *p)
 		return (2 + 2);
 	}
 	write(1, "ffffffff", 8);
-	return (2 + 8);
+	return (8 + 2);
 }
 
 int	ft_putnbr_pf(int n)
@@ -81,9 +81,6 @@ int	ft_putnbr_pf(int n)
 
 int	ft_put_perc(void)
 {
-	char	c[1];
-
-	c[0] = '%';
-	write(1, &c, 1);
+	write(1, "%", 1);
 	return (1);
 }
