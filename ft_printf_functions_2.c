@@ -12,47 +12,36 @@
 
 #include "ft_printf.h"
 
-// int	string_printer(char *str, int len)
-// {
-// 	while (--len)
-// 	{
-// 		write(1, &str[len], 1);
-// 		len;
-// 	}
-// 	write(1, &str[len], 1);
-// 	free(str);
-// 	return (len);
-// }
-
-char	tenths_to_hex(unsigned int n)
+char	tenths_to_hex(unsigned int n, int caps)
 {
 	if (n < 10)
 		return (n + 48);
 	if (n >= 10)
-		return (n + 87);
+	{
+		if (caps)
+			return (n + 55);
+		else
+			return (n + 87);
+	}
 	return (0);
 }
 
-int	ft_put_hex(unsigned int n)
+int	ft_put_hex(unsigned int n, int caps)
 {
-	char	*str = malloc(16);
+	char	*str;
 	int		len;
 	int		i;
 
-	if (n == 0)
-	{
-		write(1, "0", 1);
-		free(str);
-		return (1);
-	}
-
+	str = malloc(16);
+	if (!str)
+		return (0);
 	len = 0;
 	while (n > 15)
-    {
-		str[len++] = tenths_to_hex(n % 16);
+	{
+		str[len++] = tenths_to_hex(n % 16, caps);
 		n /= 16;
-    }
-	str[len] = tenths_to_hex(n);
+	}
+	str[len] = tenths_to_hex(n, caps);
 	i = len;
 	while (i)
 	{
