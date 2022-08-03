@@ -32,7 +32,7 @@ int	ft_put_hex(unsigned int n, int caps)
 	int		len;
 	int		i;
 
-	str = malloc(16);
+	str = malloc(25);
 	if (!str)
 		return (0);
 	len = 0;

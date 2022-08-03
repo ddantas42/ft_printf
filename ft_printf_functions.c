@@ -37,39 +37,73 @@ int	ft_putstr_pf(char *s)
 	return (6);
 }
 
-int	ft_putvoid(unsigned long int *p)
+int	ft_putvoid(unsigned long int p, int caps)
 {
-	int	n;
+	char	*str;
+	int		len;
+	int		i;
 
-	n = 2;
-	write(1, "0x", n);
-	n += ft_put_hex(&p, 0);
-	return (n);
+	if (p == 0)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	write(1, "0x", 2);
+	str = malloc(25);
+	if (!str)
+		return (0);
+	len = 0;
+	while (p > 15)
+	{
+		str[len++] = tenths_to_hex(p % 16, caps);
+		p /= 16;
+	}
+	str[len] = tenths_to_hex(p, caps);
+	i = len + 1;
+	while (--i)
+		write(1, &str[i], 1);
+	write(1, &str[i], 1);
+	free(str);
+	return (len + 1 + 2);
 }
+
+// int	ft_putnbr_pf(int n)
+// {
+// 	char	*str;
+// 	int		i;
+// 	char	c;
+
+// 	if (n)
+// 	{
+// 		str = malloc(10 * sizeof(char));
+// 		if (!str)
+// 			return (0);
+// 		str[0] = '1';
+// 		i = 0;
+// 		while (str[i])
+// 			write(1, &str[i++], 1);
+// 		free(str);
+// 		return (i);
+// 	}
+// 	if (!n)
+// 		return (0);
+// 	c = '0';
+// 	write(1, &c, 1);
+// 	return (1);
+// }
 
 int	ft_putnbr_pf(int n)
 {
-	char	*str;
-	int		i;
-	char	c;
+	char c;
+	int	len;
 
-	if (n)
+	len = 0;
+	if (n < 0)
 	{
-		str = malloc(1 * sizeof(char));
-		if (!str)
-			return (0);
-		str[0] = '1';
-		i = 0;
-		while (str[i])
-			write(1, &str[i++], 1);
-		free(str);
-		return (i);
+		write(1, '-', 1);
+		n *= -1;
+		len++;
 	}
-	if (!n)
-		return (0);
-	c = '0';
-	write(1, &c, 1);
-	return (1);
 }
 
 int	ft_put_perc(void)

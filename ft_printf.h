@@ -29,7 +29,7 @@ int		ft_putchar_pf(char c);
 int		ft_putstr_pf(char *s);
 int		ft_putnbr_pf(int n);
 int		ft_put_perc(void);
-int		ft_putvoid(unsigned long int *p);
+int		ft_putvoid(unsigned long int p, int caps);
 
 // ft_printf_functions2.c
 char	tenths_to_hex(unsigned int n, int caps);
