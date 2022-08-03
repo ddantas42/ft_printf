@@ -42,6 +42,7 @@ int	ft_put_hex(unsigned int n)
 	if (n == 0)
 	{
 		write(1, "0", 1);
+		free(str);
 		return (1);
 	}
 
@@ -50,16 +51,15 @@ int	ft_put_hex(unsigned int n)
     {
 		str[len++] = tenths_to_hex(n % 16);
 		n /= 16;
-		len++;
     }
-	str[len++] = tenths_to_hex(n);
+	str[len] = tenths_to_hex(n);
 	i = len;
-	while (str[i])
+	while (i)
 	{
 		write(1, &str[i], 1);
 		i--;
 	}
 	write(1, &str[i], 1);
 	free(str);
-	return (len);
+	return (len + 1);
 }
