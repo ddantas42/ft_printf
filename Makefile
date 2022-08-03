@@ -17,6 +17,7 @@ NAME = libftprintf.a
 FILESC = ft_printf.c \
 		ft_printf_utils.c \
 		ft_printf_functions.c \
+		ft_printf_functions_2.c \
 
 FILESLIBFTC = ./libft/ft_itoa.c \
 		./libft/ft_strlen.c \

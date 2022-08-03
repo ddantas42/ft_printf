@@ -11,40 +11,14 @@ void delay(int number_of_seconds)
         ;
 }
 
-char	*letters_hex(int n)
-{
-	if (n == 10)
-		return ("a");
-	if (n == 11)
-		return ("b");
-	if (n == 12)
-		return ("c");
-	if (n == 13)
-		return ("d");
-	if (n == 14)
-		return ("e");
-	if (n == 15)
-		return ("f");
-}
-
-char	tenths_to_hex(int n)
-{
-	if (n < 10)
-		return (n + 48);
-	if (n >= 10)
-		return (n + 87);
-	return (0);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	int	n;
-
-	n = 0;
-	while (s[n] != '\0')
-		n++;
-	return (n);
-}
+// char	tenths_to_hex(int n)
+// {
+// 	if (n < 10)
+// 		return (n + 48);
+// 	if (n >= 10)
+// 		return (n + 87);
+// 	return (0);
+// }
 
 // char	*string_inverter(char *str, int len)
 // {
@@ -79,15 +53,47 @@ size_t	ft_strlen(const char *s)
 // 	return (str);
 // }
 
+// int	string_printer(char *str, int len)
+// {
+// 	while (len)
+// 	{
+// 		write(1, &str[len], 1);
+// 		printf("\n\n STRING PRINTER == %c\n\n", str[len]);
+// 		len--;
+// 	}
+// 	write(1, &str[len], 1);
+// 	free(str);
+// 	return (len);
+// }
+
+// int	ft_put_hex(long int n)
+// {
+// 	char	*str = malloc(16);
+// 	int		len;
+
+// 	len = 0;
+// 	if (n < 0)
+// 		return ("0");
+// 	while (n > 15)
+//     {
+// 		str[len++] = tenths_to_hex(n % 16);
+// 		n /= 16;
+//     }
+// 	if (n >= 0)	
+// 		str[len++] = tenths_to_hex(n);
+// 	str[len + 1] = 0;
+// 	return (string_printer(str, len));
+// }
+
 int main()
 {
 	long int	n = 0;
-	float   resto;
-	float	div;
 
 	while (n < 100)
 	{
-		printf("N = %ld | hex = %lx | My = %s\n", n, n, ft_put_hex(n));
+		printf("N = %ld | hex = %lx\n", n, n);
+
+		// ft_put_hex(n);
 
 		delay(200);
 		n++;
