@@ -34,7 +34,7 @@ int	ft_funcion_selector(char c, va_list ap)
 	if (c == 'u')
 		return (ft_putnbr_pf(va_arg(ap, int)));
 	if (c == 'x')
-		return (ft_put_hex(va_arg(ap, int)));
+		return (ft_put_hex(va_arg(ap, long int)));
 	// if (c == 'X')
 	// 	return (ft_put_hex_caps(va_arg(ap, int)));
 	if (c == '%')

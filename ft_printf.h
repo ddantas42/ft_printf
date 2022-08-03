@@ -32,7 +32,9 @@ int		ft_put_perc(void);
 int		ft_putvoid(unsigned long int *p);
 
 // ft_printf_functions2.c
-// int     ft_put_hex(int n);
+int     ft_put_hex(long int n);
+// int		string_printer(char *str, int len);
+
 // int     ft_put_hex_caps(int n);
 
 #endif

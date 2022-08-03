@@ -30,9 +30,9 @@ char	*letters_hex(int n)
 char	tenths_to_hex(int n)
 {
 	if (n < 10)
-		return ((char)(n + 48));
+		return (n + 48);
 	if (n >= 10)
-		return ((char)(n + 87));
+		return (n + 87);
 	return (0);
 }
 
@@ -46,43 +46,38 @@ size_t	ft_strlen(const char *s)
 	return (n);
 }
 
-char	*string_inverter(char *str, int len)
-{
-	int		n;
-	char	*nova = malloc((ft_strlen(str) + 1) * sizeof(char ));
+// char	*string_inverter(char *str, int len)
+// {
+// 	int		n;
+// 	char	*nova = malloc((len + 1) * sizeof(char));
 
-	n = 0;
-	while (ft_strlen(str) != n)
-	{
-		str[len--] = nova[n];
-		n++;
-	}
-	str[ft_strlen(str) + 1] = 0;
-	return (str);
-}
+// 	n = 0;
+// 	while (len)
+// 		str[len--] = nova[n++];
+// 	nova[++n] = '\0';
+// 	free(str);
+// 	return (nova);
+// }
 
-char	*ft_put_hex(long int n)
-{
-	char	*str = malloc(16);
-	int		len;
-	char	c;
-    float   resto;
-	int		div;
+// char	*ft_put_hex(long int n)
+// {
+// 	char	*str = malloc(16);
+// 	int		len;
+// 	char	c;
 
-	len = 0;
-	if (!n)
-		return ("0");
-	while (n > 15)
-    {
-		div = n / 16;
-		resto = n % 16;
-		str[len++] = tenths_to_hex(resto);
-		n /= 16;
-    }
-	if (n > 0)
-		str[len++] = tenths_to_hex(n);
-	return (string_inverter(str, len));
-}
+// 	len = 0;
+// 	if (n < 0)
+// 		return ("0");
+// 	while (n > 15)
+//     {
+// 		c = tenths_to_hex(n % 16);
+// 		str[len++] = tenths_to_hex(n % 16);
+// 		n /= 16;
+//     }
+// 	if (n >= 0)
+// 		str[len++] = tenths_to_hex(n);
+// 	return (str);
+// }
 
 int main()
 {
@@ -93,8 +88,9 @@ int main()
 	while (n < 100)
 	{
 		printf("N = %ld | hex = %lx | My = %s\n", n, n, ft_put_hex(n));
-		n++;
+
 		delay(200);
+		n++;
 	}
 	return (0);
 }
