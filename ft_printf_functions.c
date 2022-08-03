@@ -67,47 +67,53 @@ int	ft_putvoid(unsigned long int p, int caps)
 	return (len + 1 + 2);
 }
 
-// int	ft_putnbr_pf(int n)
-// {
-// 	char	*str;
-// 	int		i;
-// 	char	c;
-
-// 	if (n)
-// 	{
-// 		str = malloc(10 * sizeof(char));
-// 		if (!str)
-// 			return (0);
-// 		str[0] = '1';
-// 		i = 0;
-// 		while (str[i])
-// 			write(1, &str[i++], 1);
-// 		free(str);
-// 		return (i);
-// 	}
-// 	if (!n)
-// 		return (0);
-// 	c = '0';
-// 	write(1, &c, 1);
-// 	return (1);
-// }
-
 int	ft_putnbr_pf(int n)
 {
-	char c;
-	int	len;
+	char	*str;
+	int		len;
+	int		i;
 
 	len = 0;
-	if (n < 0)
+	if (put_nbr_if(n, -1) == 11)
+		return (11);
+	if (put_nbr_if(n, 1) == 1)
 	{
-		write(1, '-', 1);
 		n *= -1;
 		len++;
 	}
+	i = 0;
+	str = malloc(11);
+	if (!str)
+		return (0);
+	while (n >= 10)
+	{
+		str[i++] = (n % 10) + 48;
+		n /= 10;
+	}
+	str[i] = n + 48;
+	while (i)
+	{
+		write(1, &str[i--], 1);
+		len++;
+	}
+	write(1, &str[i--], 1);
+	free(str);
+	return (len + 1);
 }
 
-int	ft_put_perc(void)
+int	put_nbr_if(int n, int sinal)
 {
-	write(1, "%", 1);
-	return (1);
+	if (n == -2147483648 && sinal == -1)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0 && sinal != -1)
+	{
+		write(1, "-", 1);
+		n++;
+		return (1);
+	}
+	return (0);
+
 }

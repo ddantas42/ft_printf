@@ -28,11 +28,12 @@ int		ft_funcion_selector(char c, va_list ap);
 int		ft_putchar_pf(char c);
 int		ft_putstr_pf(char *s);
 int		ft_putnbr_pf(int n);
-int		ft_put_perc(void);
+int		put_nbr_if(int n, int sinal);
 int		ft_putvoid(unsigned long int p, int caps);
 
 // ft_printf_functions2.c
 char	tenths_to_hex(unsigned int n, int caps);
 int		ft_put_hex(unsigned int n, int caps);
+int		ft_put_perc(void);
 
 #endif

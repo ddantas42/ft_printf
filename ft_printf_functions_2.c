@@ -52,3 +52,9 @@ int	ft_put_hex(unsigned int n, int caps)
 	free(str);
 	return (len + 1);
 }
+
+int	ft_put_perc(void)
+{
+	write(1, "%", 1);
+	return (1);
+}
