@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:29:01 by ddantas-          #+#    #+#              #
-#    Updated: 2022/05/24 10:40:45 by ddantas-         ###   ########.fr        #
+#    Updated: 2022/08/08 10:21:24 by ddantas-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ FILESC = ft_printf.c \
 		ft_printf_utils.c \
 		ft_printf_functions.c \
 		ft_printf_functions_2.c \
+		ft_prinft_functions_3.c \
 
 FILESLIBFTC = ./libft/ft_itoa.c \
 		./libft/ft_strlen.c \
