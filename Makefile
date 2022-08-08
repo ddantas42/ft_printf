@@ -6,7 +6,7 @@
 #    By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:29:01 by ddantas-          #+#    #+#              #
-#    Updated: 2022/08/08 10:21:24 by ddantas-         ###   ########.fr        #
+#    Updated: 2022/08/08 14:32:31 by ddantas-         ###   ########.fr        #		
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,12 @@ FILESC = ft_printf.c \
 		ft_printf_utils.c \
 		ft_printf_functions.c \
 		ft_printf_functions_2.c \
-		ft_prinft_functions_3.c \
-
-FILESLIBFTC = ./libft/ft_itoa.c \
-		./libft/ft_strlen.c \
 
 FILES0 = $(FILESC:.c=.o)
-FILESLIB0 = $(FILESLIBFTC:.c=.o)
-FILESLIBFT0 = $(FILESLIB0:./libft/=)
 
 all:
-	$(GCCA) -c $(FILESC) $(FILESLIBFTC)
-	ar rc $(NAME) $(FILES0) $(FILESLIBFTC0)
+	$(GCCA) -c $(FILESC)
+	ar rc $(NAME) $(FILES0)
 
 clean:
 	rm -f *.o

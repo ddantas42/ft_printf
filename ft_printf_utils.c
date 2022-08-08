@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:37:22 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/05/24 12:37:23 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:06:35 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ int	check_perc(const char *str, int n)
 int	ft_funcion_selector(char c, va_list ap)
 {
 	if (c == 'c')
-		return (ft_putchar_pf(va_arg(ap, int))); // done
+		return (c_function(va_arg(ap, int)));
 	if (c == 's')
-		return (ft_putstr_pf(va_arg(ap, char *))); // done
+		return (s_function(va_arg(ap, char *)));
 	if (c == 'p')
-		return (ft_putvoid(va_arg(ap,  unsigned long int), 0)); // done
+		return (p_function(va_arg(ap, unsigned long int), 0));
 	if (c == 'd' || c == 'i')
-		return (ft_putnbr_pf(va_arg(ap, int)));
+		return (nbr_function(va_arg(ap, int)));
 	if (c == 'u')
-		return (ft_putnbr_pf(va_arg(ap, int)));
+		return (x_function(va_arg(ap, unsigned int), 0, 10));
 	if (c == 'x')
-		return (ft_put_hex(va_arg(ap, unsigned long int), 0)); // done
+		return (x_function(va_arg(ap, unsigned long int), 0, 16));
 	if (c == 'X')
-		return (ft_put_hex(va_arg(ap, unsigned long int), 1)); // done
+		return (x_function(va_arg(ap, unsigned long int), 1, 16));
 	if (c == '%')
-		return (ft_put_perc()); // done
+		return (perc_function());
 	return (0);
 }

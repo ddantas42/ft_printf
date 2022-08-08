@@ -6,13 +6,13 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/08 10:20:04 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:30:55 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putvoid(unsigned long int p, int caps)
+int	p_function(unsigned long int p, int caps)
 {
 	char	*str;
 	int		len;
@@ -30,10 +30,10 @@ int	ft_putvoid(unsigned long int p, int caps)
 	len = 0;
 	while (p > 15)
 	{
-		str[len++] = tenths_to_hex(p % 16, caps);
+		str[len++] = x_util(p % 16, caps);
 		p /= 16;
 	}
-	str[len] = tenths_to_hex(p, caps);
+	str[len] = x_util(p, caps);
 	i = len + 1;
 	while (--i >= 0)
 		write(1, &str[i], 1);
@@ -41,7 +41,7 @@ int	ft_putvoid(unsigned long int p, int caps)
 	return (len + 1 + 2);
 }
 
-int	put_nbr_if(int n, int sinal)
+int	nbr_if(int n, int sinal)
 {
 	if (n == -2147483648 && sinal == -1)
 	{
@@ -86,16 +86,16 @@ void	print_str(int i, char *str, int n, int len)
 	free(str);
 }
 
-int	ft_putnbr_pf(int n)
+int	nbr_function(int n)
 {
 	char	*str;
 	int		len;
 	int		i;
 
 	len = 0;
-	if (put_nbr_if(n, -1) == 11)
+	if (nbr_if(n, -1) == 11)
 		return (11);
-	if (put_nbr_if(n, 1) == 1)
+	if (nbr_if(n, 1) == 1)
 	{
 		n *= -1;
 		len++;

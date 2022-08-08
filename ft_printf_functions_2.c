@@ -3,41 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_functions_2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddantas- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:53:04 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/05/25 16:53:23 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:07:31 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar_pf(char c)
+int	c_function(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int	ft_putstr_pf(char *s)
+int	s_function(char *s)
 {
 	int	n;
 
 	n = 0;
 	if (s)
 	{
-		while (*s)
-		{
-			write(1, s, 1);
-			s++;
-			n++;
-		}
+		while (*s && ++n)
+			write(1, s++, 1);
 		return (n);
 	}
 	write(1, "(null)", 6);
 	return (6);
 }
 
-char	tenths_to_hex(unsigned int n, int caps)
+char	x_util(unsigned int n, int caps)
 {
 	if (n < 10)
 		return (n + 48);
@@ -51,7 +47,7 @@ char	tenths_to_hex(unsigned int n, int caps)
 	return (0);
 }
 
-int	ft_put_hex(unsigned int n, int caps)
+int	x_function(unsigned int n, int caps, int div)
 {
 	char	*str;
 	int		len;
@@ -61,24 +57,20 @@ int	ft_put_hex(unsigned int n, int caps)
 	if (!str)
 		return (0);
 	len = 0;
-	while (n > 15)
+	while (n >= (unsigned int)div)
 	{
-		str[len++] = tenths_to_hex(n % 16, caps);
-		n /= 16;
+		str[len++] = x_util(n % div, caps);
+		n /= div;
 	}
-	str[len] = tenths_to_hex(n, caps);
+	str[len] = x_util(n, caps);
 	i = len;
-	while (i)
-	{
-		write(1, &str[i], 1);
-		i--;
-	}
-	write(1, &str[i], 1);
+	while (i >= 0)
+		write(1, &str[i--], 1);
 	free(str);
 	return (len + 1);
 }
 
-int	ft_put_perc(void)
+int	perc_function(void)
 {
 	write(1, "%", 1);
 	return (1);
