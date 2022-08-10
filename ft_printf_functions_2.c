@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:53:04 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/08 16:07:31 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:10:14 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	c_function(char c)
 {
-	write(1, &c, 1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	s_function(char *s)
@@ -53,7 +52,7 @@ int	x_function(unsigned int n, int caps, int div)
 	int		len;
 	int		i;
 
-	str = malloc(25);
+	str = malloc(25 * sizeof(char));
 	if (!str)
 		return (0);
 	len = 0;
@@ -68,10 +67,4 @@ int	x_function(unsigned int n, int caps, int div)
 		write(1, &str[i--], 1);
 	free(str);
 	return (len + 1);
-}
-
-int	perc_function(void)
-{
-	write(1, "%", 1);
-	return (1);
 }

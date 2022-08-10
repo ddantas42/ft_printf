@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:45:43 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/08 16:14:01 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:08:26 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		check_perc(const char *str, int n);
 int		ft_funcion_selector(char c, va_list ap);
 
 // ft_printf_functions.c
-int		p_function(unsigned long int p, int caps);
+int		p_function(unsigned long int p);
 int		nbr_if(int n, int sinal);
 int		int_len(int n);
 void	print_str(int i, char *str, int n, int len);
@@ -37,6 +37,5 @@ int		c_function(char c);
 int		s_function(char *s);
 char	x_util(unsigned int n, int caps);
 int		x_function(unsigned int n, int caps, int div);
-int		perc_function(void);
 
 #endif

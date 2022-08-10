@@ -6,13 +6,13 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/08 16:41:59 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:10:10 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	p_function(unsigned long int p, int caps)
+int	p_function(unsigned long int p)
 {
 	char	*str;
 	int		len;
@@ -30,10 +30,10 @@ int	p_function(unsigned long int p, int caps)
 	len = 0;
 	while (p > 15)
 	{
-		str[len++] = x_util(p % 16, caps);
+		str[len++] = x_util(p % 16, 0);
 		p /= 16;
 	}
-	str[len] = x_util(p, caps);
+	str[len] = x_util(p, 0);
 	i = len + 1;
 	while (--i >= 0)
 		write(1, &str[i], 1);

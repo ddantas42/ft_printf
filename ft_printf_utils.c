@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 12:37:22 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/08 16:24:48 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/10 17:09:07 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_funcion_selector(char c, va_list ap)
 	if (c == 's')
 		return (s_function(va_arg(ap, char *)));
 	if (c == 'p')
-		return (p_function(va_arg(ap, unsigned long int), 0));
+		return (p_function(va_arg(ap, unsigned long int)));
 	if (c == 'd' || c == 'i')
 		return (nbr_function(va_arg(ap, int)));
 	if (c == 'u')
@@ -38,6 +38,6 @@ int	ft_funcion_selector(char c, va_list ap)
 	if (c == 'X')
 		return (x_function(va_arg(ap, unsigned long int), 1, 16));
 	if (c == '%')
-		return (perc_function());
+		return (write(1, "%", 1));
 	return (0);
 }

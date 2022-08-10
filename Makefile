@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-GCCA = gcc -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
@@ -21,8 +22,9 @@ FILESC = ft_printf.c \
 
 FILES0 = $(FILESC:.c=.o)
 
-all:
-	$(GCCA) -c $(FILESC)
+all: $(NAME)
+
+$(NAME): $(FILES0)
 	ar rc $(NAME) $(FILES0)
 
 clean:
@@ -32,3 +34,5 @@ fclean: clean
 	rm -f libftprintf.a
 
 re: fclean all
+
+.PHONY: all clean fclean re
