@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:53:04 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/10 17:10:14 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:30:10 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ int	s_function(char *s)
 			write(1, s++, 1);
 		return (n);
 	}
-	write(1, "(null)", 6);
-	return (6);
+	return (write(1, "(null)", 6));
 }
 
 char	x_util(unsigned int n, int caps)

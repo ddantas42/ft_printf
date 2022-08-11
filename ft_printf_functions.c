@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/10 17:10:10 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/11 08:42:58 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ int	p_function(unsigned long int p)
 	int		i;
 
 	if (p == 0)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
+		return (write(1, "(nil)", 5));
 	write(1, "0x", 2);
 	str = malloc(25);
 	if (!str)
