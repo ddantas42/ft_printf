@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:53:04 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/11 12:01:29 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:43:54 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,9 @@ char	x_util(unsigned int n, int caps)
 {
 	if (n < 10)
 		return (n + 48);
-	if (n >= 10)
-	{
-		if (caps)
-			return (n + 55);
-		else
-			return (n + 87);
-	}
-	return (0);
+	if (n >= 10 && caps)
+		return (n + 55);
+	return (n + 87);
 }
 
 int	x_function(unsigned int n, int caps, int div)
