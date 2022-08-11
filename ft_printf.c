@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:42:39 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/10 17:10:12 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:01:50 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	ft_printf(const char *str, ...)
 				continue ;
 			}
 		}
-		write(1, &str[n], 1);
-		len++;
-		n++;
+		len += write(1, &str[n++], 1);
 	}
 	va_end(ap);
 	return (len);

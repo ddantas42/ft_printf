@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/11 08:42:58 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/11 12:01:23 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,20 @@ int	p_function(unsigned long int p)
 		str[len++] = x_util(p % 16, 0);
 		p /= 16;
 	}
-	str[len] = x_util(p, 0);
-	i = len + 1;
+	str[len++] = x_util(p, 0);
+	i = len;
 	while (--i >= 0)
 		write(1, &str[i], 1);
 	free(str);
-	return (len + 1 + 2);
+	return (len + 2);
 }
 
 int	nbr_if(int n, int sinal)
 {
 	if (n == -2147483648 && sinal == -1)
-	{
-		write(1, "-2147483648", 11);
-		return (11);
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0 && sinal != -1)
-	{
-		write(1, "-", 1);
-		n++;
-		return (1);
-	}
+		return (write(1, "-", 1));
 	return (0);
 }
 
