@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:53:04 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/11 14:43:54 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:49:57 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,20 @@ int	c_function(char c)
 	return (write(1, &c, 1));
 }
 
-int	s_function(char *s)
+int	s_function(char *s, int n)
 {
-	int	n;
-
-	n = 0;
-	if (s)
-	{
-		while (*s && ++n)
-			write(1, s++, 1);
-		return (n);
-	}
-	return (write(1, "(null)", 6));
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (*s && ++n)
+		write(1, s++, 1);
+	return (n);
 }
 
 char	x_util(unsigned int n, int caps)
 {
 	if (n < 10)
 		return (n + 48);
-	if (n >= 10 && caps)
+	if (caps)
 		return (n + 55);
 	return (n + 87);
 }

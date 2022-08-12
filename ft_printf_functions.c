@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/11 12:01:23 by ddantas-         ###   ########.fr       */
+/*   Updated: 2022/08/12 15:24:35 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ int	p_function(unsigned long int p)
 	char	*str;
 	int		len;
 	int		i;
-
+	
 	if (p == 0)
 		return (write(1, "(nil)", 5));
-	write(1, "0x", 2);
+	len = write(1, "0x", 2) - 2;
 	str = malloc(25);
 	if (!str)
 		return (0);
-	len = 0;
 	while (p > 15)
 	{
 		str[len++] = x_util(p % 16, 0);
@@ -47,18 +46,13 @@ int	nbr_if(int n, int sinal)
 	return (0);
 }
 
-int	int_len(int n)
+int	int_len(int n, int len)
 {
-	int	len;
-
 	len = 0;
-	if (n == 0)
+	if (!n)
 		return (1);
-	while (n > 0)
-	{
-		len++;
+	while (n > 0 && ++len)
 		n /= 10;
-	}
 	return (len);
 }
 
@@ -90,7 +84,7 @@ int	nbr_function(int n)
 		n *= -1;
 		len++;
 	}
-	len += int_len(n);
+	len += int_len(n, len);
 	i = 0;
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
