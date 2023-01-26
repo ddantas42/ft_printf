@@ -6,7 +6,7 @@
 /*   By: ddantas- <ddantas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 13:19:36 by ddantas-          #+#    #+#             */
-/*   Updated: 2022/08/12 15:24:35 by ddantas-         ###   ########.fr       */
+/*   Updated: 2023/01/26 21:38:40 by ddantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	p_function(unsigned long int p)
 	char	*str;
 	int		len;
 	int		i;
-	
+
 	if (p == 0)
 		return (write(1, "(nil)", 5));
 	len = write(1, "0x", 2) - 2;
